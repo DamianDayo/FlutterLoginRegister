@@ -70,14 +70,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Image.asset('assets/iwak.jpg'),
               ),
             ),
-            const Text(
-              "Silakan isi data diri anda",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.blue,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+
+            const TitleText(text: "Silakan isi data diri anda"),
 
             CustomInputField(
               label: "Username",
@@ -130,18 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
             ),
 
-            Container(
-              width: double.infinity,
-              margin: const EdgeInsets.all(5),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: _register,
-                child: const Text("Register"),
-              ),
-            ),
+            CustomButton(text: "Register", onPressed: _register),
 
             Text(statusRegistrasi),
           ],
