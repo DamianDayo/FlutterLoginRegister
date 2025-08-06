@@ -40,11 +40,16 @@ class _LoginPageState extends State<LoginPage> {
                 const TitleText(text: "Selamat Datang"),
                 const HeaderImage(),
                 const Text("Silakan masukkan username dan password anda"),
-                CustomInputField(label: "Username", controller: txtUsername),
+                CustomInputField(
+                  label: "Username",
+                  controller: txtUsername,
+                  isNumber: false,
+                ),
                 CustomInputField(
                   label: "Password",
                   controller: txtPassword,
                   obscure: true,
+                  isNumber: false,
                 ),
                 CustomButton(text: "Login", onPressed: _login),
                 Center(

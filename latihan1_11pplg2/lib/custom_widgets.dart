@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomInputField extends StatelessWidget {
   final String label;
   final TextEditingController controller;
   final bool obscure;
+  final bool isNumber;
 
   const CustomInputField({
     super.key,
     required this.label,
     required this.controller,
     this.obscure = false,
+    this.isNumber = false,
   });
 
   @override
@@ -19,6 +22,10 @@ class CustomInputField extends StatelessWidget {
       child: TextField(
         controller: controller,
         obscureText: obscure,
+        keyboardType: isNumber ? TextInputType.numberWithOptions(decimal: true) : TextInputType.text,
+        inputFormatters: isNumber
+            ? [FilteringTextInputFormatter.digitsOnly]
+            : [],
         decoration: InputDecoration(
           labelText: label,
           border: const OutlineInputBorder(),

@@ -76,15 +76,18 @@ class _RegisterPageState extends State<RegisterPage> {
             CustomInputField(
               label: "Username",
               controller: txtUsername,
+              isNumber: false,
             ),
             CustomInputField(
               label: "Email",
               controller: txtEmail,
+              isNumber: false,
             ),
             CustomInputField(
               label: "Password",
               controller: txtPassword,
               obscure: true,
+              isNumber: false,
             ),
 
             const SizedBox(height: 10),
@@ -120,6 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: CustomInputField(
                   label: "Tanggal Lahir",
                   controller: txtTanggalLahir,
+                  isNumber: false,
                 ),
               ),
             ),

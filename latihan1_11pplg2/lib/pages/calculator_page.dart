@@ -23,10 +23,12 @@ class CalculatorPage extends StatelessWidget {
               CustomInputField(
                 label: "Angka 1",
                 controller: calculatorController.txtAngka1,
+                isNumber: true,
               ),
               CustomInputField(
                 label: "Angka 2",
                 controller: calculatorController.txtAngka2,
+                isNumber: true,
               ),
               const SizedBox(height: 10),
 
