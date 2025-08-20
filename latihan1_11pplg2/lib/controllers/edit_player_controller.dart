@@ -8,10 +8,10 @@ class EditPlayerController extends GetxController {
   final txtNomor = TextEditingController();
 
   late int playerIndex;
-  late String fotoPath; // <-- simpan path foto
+  late String fotoPath;
 
   final footballPlayerController = Get.find<FootballPlayerController>();
-  bool _initialized = false; // jaga-jaga biar ga set ulang tiap rebuild
+  bool _initialized = false;
 
   void setPlayerData(int index) {
     if (_initialized && playerIndex == index) return;
@@ -21,7 +21,7 @@ class EditPlayerController extends GetxController {
     txtNama.text = player.nama;
     txtPosisi.text = player.posisi;
     txtNomor.text = player.nomor.toString();
-    fotoPath = player.foto; // <-- set path foto
+    fotoPath = player.foto;
 
     _initialized = true;
   }

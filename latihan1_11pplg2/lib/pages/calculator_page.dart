@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controllers/calculator_controller.dart';
 import 'package:latihan1_11pplg2/components/custom_widgets.dart';
-import 'package:latihan1_11pplg2/routes/routes.dart';
 
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
@@ -81,10 +80,8 @@ class CalculatorPage extends StatelessWidget {
               }),
 
               CustomButton(
-                text: "Main Menu",
-                onPressed: () {
-                  Get.toNamed(AppRoutes.footballPage);
-                },
+                text: "Clear",
+                onPressed: calculatorController.clear,
               ),
             ],
           ),

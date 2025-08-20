@@ -65,6 +65,7 @@ flutter:
     - assets/hina.png
     - assets/hoshino.jpg
     - assets/iwak.jpg
+    - assets/damian.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

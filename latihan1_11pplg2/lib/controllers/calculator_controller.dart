@@ -28,7 +28,7 @@ class CalculatorController extends GetxController {
     int angka1 = int.tryParse(txtAngka1.text) ?? 0;
     int angka2 = int.tryParse(txtAngka2.text) == 0 ? 1 : int.tryParse(txtAngka2.text)!;
     if (angka2 == 0) {
-      textHasil.value = "Tidak bisa dibagi 0";
+      textHasil.value = "Error";
     } else {
       textHasil.value = (angka1 / angka2).toStringAsFixed(2);
     }

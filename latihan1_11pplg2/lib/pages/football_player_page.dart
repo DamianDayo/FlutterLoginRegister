@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/routes/routes.dart';
 import '../controllers/football_player_controller.dart';
 
-class FootballPlayer extends StatelessWidget {
-  FootballPlayer({super.key});
+class FootballPlayerPage extends StatelessWidget {
+  FootballPlayerPage({super.key});
 
   final FootballPlayerController footballPlayerController =
       Get.put(FootballPlayerController());
@@ -12,16 +12,9 @@ class FootballPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Kivotos Football Team"),
-        leading: BackButton(
-          onPressed: () {
-            Get.back();
-            }
-        ),
-      ),
+      appBar: AppBar(title: const Text("Kivotos Football Team")),
       body: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: Obx(
           () => ListView.builder(
             itemCount: footballPlayerController.players.length,
@@ -42,6 +35,7 @@ class FootballPlayer extends StatelessWidget {
                     Text("Nomor ${player.nomor}"),
                   ],
                 ),
+                trailing: const Icon(Icons.edit),
                 onTap: () {
                   Get.toNamed(AppRoutes.editPlayerPage, arguments: index);
                 },
