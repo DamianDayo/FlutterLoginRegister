@@ -4,39 +4,50 @@ import 'package:latihan1_11pplg2/components/custom_widgets.dart';
 import '../controllers/edit_player_controller.dart';
 
 class EditPlayerPage extends StatelessWidget {
-  final EditPlayerController editController = Get.put(EditPlayerController());
+  final EditPlayerController controller = Get.put(EditPlayerController());
 
-  EditPlayerPage({super.key});
+  final txtNama = TextEditingController();
+  final txtPosisi = TextEditingController();
+  final txtNomor = TextEditingController();
+
+  EditPlayerPage({super.key}) {
+    final player = controller.footballPlayerController.players[controller.playerIndex];
+    txtNama.text = player.nama;
+    txtPosisi.text = player.posisi;
+    txtNomor.text = player.nomor.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
-    
-    final int index = Get.arguments;
-    editController.setPlayerData(index);
-
     return Scaffold(
-      appBar: AppBar(title: Text("Edit Player")),
+      appBar: AppBar(title: const Text("Edit Player")),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         child: Column(
           children: [
-            
             CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage(
-                editController.footballPlayerController.players[index].foto,
+                controller.footballPlayerController.players[controller.playerIndex].foto,
               ),
             ),
             const SizedBox(height: 20),
 
-            CustomInputField(label: "Nama", controller: editController.txtNama),
-            CustomInputField(label: "Posisi", controller: editController.txtPosisi),
-            CustomInputField(label: "Nomor Punggung", controller: editController.txtNomor, isNumber: true),
-            
+            CustomInputField(label: "Nama", controller: txtNama),
+            CustomInputField(label: "Posisi", controller: txtPosisi),
+            CustomInputField(label: "Nomor Punggung", controller: txtNomor, isNumber: true),
+
             const Spacer(),
             CustomButton(
               text: "Simpan Perubahan",
-              onPressed: editController.savePlayer,
+              onPressed: () {
+                controller.savePlayer(
+                  txtNama.text,
+                  txtPosisi.text,
+                  int.tryParse(txtNomor.text) ??
+                      controller.footballPlayerController.players[controller.playerIndex].nomor,
+                );
+              },
             ),
           ],
         ),
